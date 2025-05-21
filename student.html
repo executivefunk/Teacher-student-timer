@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Timer</title>
+    <link rel="stylesheet" href="student.css">
+</head>
+<body>
+    <h1>Select Your Timer</h1>
+    <div id="schedule-options"></div>
+
+    <div id="fullscreen-timer-container">
+      <h2 id="segment-label">Segment Label</h2>
+      <div id="time-display">00:00</div>
+      <button id="exit-timer-button">Exit</button>
+    </div>
+
+    <script src="student.js" defer></script>
+
+    <div id="exit-modal" class="modal">
+      <div class="modal-content">
+        <p>To exit the timer, please type "exit" below and click "Confirm Exit".</p>
+        <input type="text" id="exit-confirm-input" placeholder="Type 'exit' here">
+        <div class="modal-buttons">
+          <button id="confirm-exit-modal-button">Confirm Exit</button>
+          <button id="cancel-exit-modal-button">Cancel</button>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

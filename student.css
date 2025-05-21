@@ -1,0 +1,224 @@
+/* General Base Styles */
+* {
+    box-sizing: border-box; /* Apply box-sizing to all elements for easier layout management */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* More modern sans-serif stack */
+    margin: 0; /* Remove default browser margins */
+    padding-top: 20px; /* Keep existing top padding */
+    background-color: #f4f7f6; /* Light grayish blue */
+    color: #333; /* Dark gray for text */
+    display: flex; /* Keep flex properties for main layout */
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #2c3e50; /* Darker blue for heading */
+    margin-bottom: 30px; /* Add some more space below the main title */
+}
+
+/* Schedule Selection View */
+#schedule-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px; /* Max width for the container */
+    padding: 0 15px; /* Add some padding on the sides for smaller screens */
+}
+
+.schedule-button {
+    display: block;
+    width: 100%; /* Make buttons take full width of their container */
+    margin: 10px 0; /* Adjusted margin for full width */
+    padding: 18px; /* Slightly increased padding */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.schedule-button:hover {
+    background-color: #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.schedule-button h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #3498db; /* Blue for schedule titles */
+    font-size: 1.2em; /* Slightly larger for better hierarchy */
+}
+
+.schedule-button p {
+    margin-bottom: 0;
+    white-space: pre-line;
+    font-size: 0.9em;
+    color: #555;
+    line-height: 1.5; /* Improve readability of description */
+}
+
+/* Full-Screen Timer View */
+#fullscreen-timer-container {
+  display: none; /* Initially hidden, JS handles display:flex */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #2c3e50; /* Dark blue-grey background */
+  color: white;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 1000;
+  padding: 20px; /* Padding for content inside */
+}
+
+#segment-label {
+  font-size: 2.8em; /* Adjusted for broader compatibility */
+  margin-bottom: 25px; /* Adjusted margin */
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2); /* Subtle shadow for definition */
+}
+
+#time-display {
+  font-size: 6em; /* Adjusted for broader compatibility, see media query */
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.2); /* Subtle shadow for definition */
+}
+
+#exit-timer-button {
+  padding: 12px 25px; /* Standardized padding a bit */
+  font-size: 1.2em; /* Standardized font size a bit */
+  background-color: #e74c3c; /* Red color for exit */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#exit-timer-button:hover {
+  background-color: #c0392b; /* Darker red on hover */
+}
+
+/* Exit Confirmation Modal */
+.modal {
+  display: none; /* Hidden by default, JS handles display:block */
+  position: fixed;
+  z-index: 2000; /* Ensure it's on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.65); /* Slightly darker overlay for more focus */
+  padding-top: 10%; /* Adjust vertical position of modal content */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 0 auto; /* Centered horizontally, padding-top on .modal handles vertical */
+  padding: 25px; /* Increased padding */
+  border: 1px solid #888;
+  width: 90%; /* Responsive width */
+  max-width: 400px; /* Adjusted max-width */
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Enhanced shadow */
+  color: #333; /* Ensure modal text color is dark */
+}
+
+.modal-content p {
+  font-size: 1.1em;
+  margin-bottom: 20px; /* More space below paragraph */
+  line-height: 1.5;
+}
+
+#exit-confirm-input {
+  width: 100%; /* Full width of its container */
+  padding: 12px; /* More padding */
+  margin-bottom: 25px; /* More space below input */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.modal-buttons button {
+  padding: 12px 20px; /* Standardized padding */
+  margin: 0 8px; /* Adjusted margin */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+#confirm-exit-modal-button {
+  background-color: #e74c3c; /* Red */
+  color: white;
+}
+#confirm-exit-modal-button:hover {
+  background-color: #c0392b;
+}
+
+#cancel-exit-modal-button {
+  background-color: #bdc3c7; /* Grey */
+  color: #2c3e50;
+}
+#cancel-exit-modal-button:hover {
+  background-color: #95a5a6;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.8em; /* Reduce heading size on small screens */
+  }
+
+  #segment-label {
+    font-size: 2em; /* Further reduce for very small screens */
+  }
+
+  #time-display {
+    font-size: 4em; /* Significantly reduce time display on small screens */
+  }
+
+  .schedule-button h4 {
+    font-size: 1.1em;
+  }
+  .schedule-button p {
+    font-size: 0.85em;
+  }
+
+  #exit-timer-button {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+
+  .modal-content {
+     padding: 20px;
+     margin-top: 5%; /* Adjust margin for smaller screens */
+  }
+   .modal-content p {
+    font-size: 1em;
+  }
+  .modal-buttons button {
+    padding: 10px 15px;
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 400px) {
+    #segment-label {
+        font-size: 1.8em;
+    }
+    #time-display {
+        font-size: 3.2em;
+    }
+}
